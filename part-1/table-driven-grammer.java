@@ -1,28 +1,36 @@
 import java.util.HashMap
-
+import java.util.Deque;
+import java.util.Scanner;
 
 public class table-driven-grammer
 {
+  
+    private static Deque<String> stack = new ArrayDeque<String>();
+  private static Deque<String> grammer_stack = new ArrayDeque<String>();
+  private static HashMap<String,Integer> tableRules = new HashMap<String, Integer>();
+
   public static void main(String[] args)
   {
     fillTable();
-    checkGrammer(); 
+    checkGrammer();
+    System.out.print("Grammer: ");
+    Scanner sc = new Scanner(System.in);
+    while (sc.hasNext())
+        stack.addLast(sc.next());
   }
-  private static Deque<String> stack = new ArrayDeque<String>();
-  private static Deque<String> grammer_stack = new ArrayDeque<String>();
-  private static HashMap<String,Integer> tableRules = new HashMap<String, Integer>();
 
   public static boolean checkGrammer()
   {
     grammer_stack.push("$");
     grammer_stack.push("<program>");
-      while(true)
+      while(stack.size() > 0)
       {
           String a = grammer_stack.peek();
           String b = stack.peek();
 
           String rule = a + "," + b;
 
+          if (a.eq
          int useRule = tableRules.get(rule);
 
         switch (useRule) {
