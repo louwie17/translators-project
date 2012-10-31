@@ -5,11 +5,30 @@ public class table-driven-grammer
 {
   public static void main(String[] args)
   {
-    
+    fillTable();
+    checkGrammer(); 
   }
+  private static Deque<String> stack = new ArrayDeque<String>();
+  private static Deque<String> grammer_stack = new ArrayDeque<String>();
+  private static HashMap<String,Integer> tableRules = new HashMap<String, Integer>();
 
-  private static HashMap<String,Integer> tableRules = new HashMap<String, Integer>;
+  public static boolean checkGrammer()
+  {
+    
+      while(true)
+      {
+          String a = grammer_stack.peek();
+          String b = stack.peek();
 
+          String rule = a + "," + b;
+
+         int useRule = tableRules.get(rule);
+
+        switch (useRule)
+            case 1: 
+      }
+  }
+  
   public static void fillTable()
   {
     tableRules.put("<program>,begin", 1);
