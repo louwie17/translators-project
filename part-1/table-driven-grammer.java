@@ -14,7 +14,8 @@ public class table-driven-grammer
 
   public static boolean checkGrammer()
   {
-    
+    grammer_stack.push("$");
+    grammer_stack.push("<program>");
       while(true)
       {
           String a = grammer_stack.peek();
@@ -24,8 +25,96 @@ public class table-driven-grammer
 
          int useRule = tableRules.get(rule);
 
-        switch (useRule)
-            case 1: 
+        switch (useRule) {
+            case 1:
+                grammer_stack.push("end");
+                grammer_stack.push("<statement list>");
+                grammer_stack.push("begin");
+                break;
+            case 2: 
+                grammer_stack.push("<statement tail>");
+                grammer_stack.push("<statement>");
+                break;
+            case 3:
+                grammer_stack.push("<statement tail>");
+                grammer_stack.push("<statement>");
+                break;
+            case 4:
+                break;
+            case 5:
+                grammer_stack.push(";");
+                grammer_stack.push("<expression>");
+                grammer_stack.push("=");
+                grammer_stack.push(":");
+                grammer_stack.push("Id");
+                break;
+            case 6:
+                grammer_stack.push(";");
+                grammer_stack.push(")");
+                grammer_stack.push("<id list>");
+                grammer_stack.push("(");
+                grammer_stack.push("read");
+                break;
+            case 7:
+                grammer_stack.push(";");
+                grammer_stack.push(")");
+                grammer_stack.push("<expr list>");
+                grammer_stack.push("(");
+                grammer_stack.push("write");
+                break;
+            case 8:
+                grammer_stack.push("<id tail>");
+                grammer_stack.push("Id");
+                break;
+            case 9:
+                grammer_stack.push("<id tail>");
+                grammer_stack.push("Id");
+                grammer_stack.push(",");
+                break;
+            case 10:
+                break;
+            case 11:
+                grammer_stack.push("<expr tail>");
+                grammer_stack.push("<expression>");
+                break;
+            case 12:
+                grammer_stack.push("<expr tail>");
+                grammer_stack.push("<expression>");
+                grammer_stack.push(",");
+                break;
+            case 13:
+                break;
+            case 14:
+                grammer_stack.push("<primary tail>");
+                grammer_stack.push("<primary>");
+                break;
+            case 15:
+                grammer_stack.push("<primary tail>");
+                grammer_stack.push("<primary>");
+                grammer_stack.push("<add op>");
+                break;
+            case 16:
+                break;
+            case 17:
+                grammer_stack.push(")");
+                grammer_stack.push("<expression>");
+                grammer_stack.push("(");
+                break;
+            case 18:
+                grammer_stack.push("Id");
+                break;
+            case 19:
+                grammer_stack.push("INTLIT");
+                break;
+            case 20:
+                grammer_stack.push("+");
+                break;
+            case 21:
+                grammer_stack.push("-");
+                break;
+            default:
+                break;
+        }
       }
   }
   
