@@ -1,16 +1,26 @@
 Valid:
 
-begin Id : = Id ( INTLIT ) ; read ( Id , Id ) ; write ( Id , INTLIT + INTLIT, INTLIT - Id ) ; end $
-
 begin read ( Id , Id ) ; end $
-
 
 begin read ( Id ) ; end $
 
 begin Id : = Id ; read ( Id , Id ) ; end $
 
+begin Id : = INTLIT ( Id + INTLIT ( Id ) ) ; write ( Id - INTLIT , Id ( INTLIT + INTLIT ) ) ; read ( Id , Id , Id ) ; end $
+
+begin read ( Id , Id ) ; end $
+
+begin read ( Id , Id ) ; read ( Id , Id , Id ) ; write ( Id ( INTLIT - INTLIT - INTLIT + Id ) , Id + Id  ) ; Id : = Id ; end $
+
+
 Invalid:
+
+begin read ( Id , Id ) ; read ( Id , Id , Id ) ; write ( Id ( INTLT - INTLIT - INTLIT + Id ) , Id + Id  ) ; Id : = Id ; end $
+
+begin Id : INTLIT ( Id + INTLIT ( Id ) ) ; write ( Id - INTLIT , Id ( INTLIT + INTLIT ) ) ; read ( Id , Id , Id ) ; end $
 
 begin read ( Id , Id ) ; end $ as
 
 begin read ( Id ) ; end
+
+begin read ( Id , Id ) end $

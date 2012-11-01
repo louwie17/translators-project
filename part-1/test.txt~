@@ -1,6 +1,0 @@
-begin Id : = Id ( INTLIT ) ; read ( Id , Id ) ; write ( Id , INTLIT + INTLIT, INTLIT - Id ) ; end $
-
-begin read ( Id , Id ) ; end $
-
-
-

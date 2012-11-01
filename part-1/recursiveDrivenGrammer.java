@@ -9,7 +9,6 @@ public class recursiveDrivenGrammer
         Scanner in = new Scanner(System.in);
         System.out.print("Grammer: ");
         grammer = in.nextLine();
-        System.out.println(grammer);
         system_goal();
 
         if (grammer.trim().length() == 0)
