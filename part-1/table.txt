@@ -1,0 +1,42 @@
+ Rule  First Set     Derives Empty   Follow Set     Predict
+------------------------------------------------------------------------------
+1      begin         No                             begin
+2      Id read write No                             Id read write
+3      Id read write No                             Id read write
+4                    Yes             end            end
+5      Id            No                             Id
+6      read          No                             read
+7      write         No                             write
+8      Id            No                             Id
+9      ,             No                             ,
+10                   Yes             )              )
+11     Id INTLIT     No                             Id INTLIT
+12     ,             No                             ,
+13                   Yes             )              )
+14     Id INTLIT     No                             Id INTLIT
+15     + -           No                             + -
+16                   Yes             ) , ;          ) , ;
+17     (             No                             (
+18     Id            No                             Id
+19     INTLIT        No                             INTLIT
+20     +             No                             +
+21     -             No                             -
+22     begin         No                             begin
+
+
+                 |  Lookahead
+ Nonterminal     |  begin   Id   read    write    end    ,   )   INTLIT   +    -   ;   (
+-----------------------------------------------------------------------------------------
+Program          |    1
+Statement list   |           2     2       2
+Statement tail   |           3     3       3       4
+Statement        |           5     6       7
+id list          |           8                            
+id tail          |                                       9   10
+expr list        |           11                                     11
+expr tail        |                                       12  13
+expression       |           14                                     14
+primary tail     |                                       16  16          15   15   16  17
+primary          |           18                                     19
+add op           |                                                       20   21
+system goal      |    22
