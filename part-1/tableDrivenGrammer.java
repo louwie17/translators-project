@@ -46,7 +46,14 @@ public class tableDrivenGrammer
               grammer_stack.pop();
               continue;
           }
-         int useRule = tableRules.get(rule);
+          int useRule;
+          if (tableRules.get(rule) == null)
+          {
+              valid = false;
+              break;
+          }
+          else
+              useRule = tableRules.get(rule);
         if (useRule >= 1 && useRule <= 22)
             grammer_stack.pop();
         switch (useRule) 
