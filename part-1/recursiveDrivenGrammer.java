@@ -1,19 +1,21 @@
 import java.util.Scanner;
 
-public class recursiveGivenGrammer
+public class recursiveDrivenGrammer
 {
     public static String grammer = "";
 
     public static void main(String args[])
     {
         Scanner in = new Scanner(System.in);
+        System.out.print("Grammer: ");
         grammer = in.nextLine();
+        System.out.println(grammer);
         system_goal();
 
-        if (grammer.trim().size() == 0)
-            System.out.println("Grammer is valid");
+        if (grammer.trim().length() == 0)
+            System.out.println("Grammer is valid!");
         else
-            System.out.println("Grammer is invalid");
+            System.out.println("Grammer is invalid!");
     }
 
     public static boolean start(String token)
@@ -24,17 +26,18 @@ public class recursiveGivenGrammer
             return false;
     }
 
-    public static String remove(String token)
+    public static void remove(String token)
     {
         if (start(token))
-            return grammer.trim().substring(token.trim().length() - 1,
-                    grammer.trim().length() -1);
+        {
+            grammer = grammer.trim().substring(token.trim().length(),
+                    grammer.trim().length());
+        }
         else
         {
-            System.out.println("Grammer is invalid");
+            System.out.println("Grammer is invalid!");
             System.exit(1);
         }
-
     }
 
     public static void system_goal()
@@ -42,7 +45,7 @@ public class recursiveGivenGrammer
         if (start("begin"))
         {
             program();
-            grammer = remove("$");
+            remove("$");
         }
     }
 
@@ -50,9 +53,9 @@ public class recursiveGivenGrammer
     {
         if (start("begin"))
         {
-            grammer = remove("begin");
+            remove("begin");
             statement_list();
-            grammer = remove("end");
+            remove("end");
         }
     }
 
@@ -136,6 +139,58 @@ public class recursiveGivenGrammer
 
     public static void expr_tail()
     {
+        if (start(","))
+        {
+            remove(",");
+            expression();
+            expr_tail();
+        }
+        else
+            return;
+    }
 
+    public static void expression()
+    {
+        if (start("Id") || start("INTLIT"))
+        {
+            primary();
+            primary_tail();
+        }
+    }
+
+    public static void primary_tail()
+    {
+        if (start("+") || start("-"))
+        {
+            add_op();
+            primary();
+            primary_tail();
+        }
+        else if (start("("))
+        {
+            remove("(");
+            expression();
+            remove(")");
+        }
+        else
+            return;
+    }
+
+    public static void primary()
+    {
+        if (start("Id"))
+        {
+            remove("Id");
+        }
+        else if (start("INTLIT"))
+            remove("INTLIT");
+    } 
+
+    public static void add_op()
+    {
+        if (start("+"))
+            remove("+");
+        else if (start("-"))
+            remove("-");
     }
 }
