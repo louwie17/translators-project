@@ -13,9 +13,9 @@ public class recursiveDrivenGrammer
         system_goal();
 
         if (grammer.trim().length() == 0)
-            System.out.println("Grammer is valid!");
+            System.out.println("Text is grammer compatible!");
         else
-            System.out.println("Grammer is invalid!");
+            System.out.println("Text is not grammer compatible!");
     }
 
     public static boolean start(String token)
@@ -35,7 +35,7 @@ public class recursiveDrivenGrammer
         }
         else
         {
-            System.out.println("Grammer is invalid!");
+            System.out.println("Text is not grammer compatible!");
             System.exit(1);
         }
     }

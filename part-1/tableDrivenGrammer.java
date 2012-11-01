@@ -19,7 +19,11 @@ public class tableDrivenGrammer
     Scanner as = new Scanner(gram);
     while (as.hasNext())
         stack.addLast(as.next());
-    System.out.println("Grammer is: " + checkGrammer());
+    boolean result = checkGrammer();
+    if (result)
+        System.out.println("Text is grammer compatible!");
+    else
+        System.out.println("Text is not grammer compatible!");
   }
 
   public static boolean checkGrammer()
