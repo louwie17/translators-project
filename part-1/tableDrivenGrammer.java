@@ -15,8 +15,10 @@ public class tableDrivenGrammer
     fillTable();
     System.out.print("Grammer: ");
     Scanner sc = new Scanner(System.in);
-    while (sc.hasNext())
-        stack.addLast(sc.next());
+    String gram = sc.nextLine();
+    Scanner as = new Scanner(gram);
+    while (as.hasNext())
+        stack.addLast(as.next());
     System.out.println("Grammer is: " + checkGrammer());
   }
 
