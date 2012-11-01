@@ -65,6 +65,9 @@ public class recursiveDrivenGrammer
             statement();
             statement_tail();
         }
+        else
+            grammer = "$" + grammer;
+        return;
     }
 
     public static void statement_tail()
