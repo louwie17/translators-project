@@ -65,5 +65,77 @@ public class recursiveGivenGrammer
         }
     }
 
+    public static void statement_tail()
+    {
+        if (start("Id") || start("read") || start("write"))
+        {
+            statement();
+            statement_tail();
+        }
+        else
+            return;
+    }
     
+    public static void statement()
+    {
+        if (start("Id"))
+        {
+            remove("Id");
+            remove(":");
+            remove("=");
+            expression();
+            remove(";");
+        }
+        else if (start("read"))
+        {
+            remove("read");
+            remove("(");
+            id_list();
+            remove(")");
+            remove(";");
+        }
+        else if (start("write"))
+        {
+            remove("write");
+            remove("(");
+            expr_list();
+            remove(")");
+            remove(";");
+        }
+    }
+
+    public static void id_list()
+    {
+        if (start("Id"))
+        {
+            remove("Id");
+            id_tail();
+        }
+    }
+
+    public static void id_tail()
+    {
+        if (start(","))
+        {
+            remove(",");
+            remove("Id");
+            id_tail();
+        }
+        else
+            return;
+    }
+
+    public static void expr_list()
+    {
+        if (start("Id") || start("INTLIT"))
+        {
+            expression();
+            expr_tail();
+        }
+    }
+
+    public static void expr_tail()
+    {
+
+    }
 }
