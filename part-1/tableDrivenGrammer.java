@@ -142,7 +142,7 @@ public class tableDrivenGrammer
                 break;
         }
       }
-      if (stack.size() == 0)
+      if (stack.size() == 0 && grammer_stack.size() == 0)
           return true;
       else 
           return false;
