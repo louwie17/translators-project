@@ -1,36 +1,44 @@
-import java.util.HashMap
-import java.util.Deque;
+import java.util.HashMap;
 import java.util.Scanner;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
-public class table-driven-grammer
+public class tableDrivenGrammer
 {
   
-    private static Deque<String> stack = new ArrayDeque<String>();
+  private static Deque<String> stack = new ArrayDeque<String>();
   private static Deque<String> grammer_stack = new ArrayDeque<String>();
   private static HashMap<String,Integer> tableRules = new HashMap<String, Integer>();
 
   public static void main(String[] args)
   {
     fillTable();
-    checkGrammer();
     System.out.print("Grammer: ");
     Scanner sc = new Scanner(System.in);
     while (sc.hasNext())
         stack.addLast(sc.next());
+    System.out.println("Grammer is: " + checkGrammer());
   }
 
   public static boolean checkGrammer()
   {
+      boolean valid = true;
     grammer_stack.push("$");
     grammer_stack.push("<program>");
-      while(stack.size() > 0)
+      while(stack.size() > 0 || valid == true)
       {
           String a = grammer_stack.peek();
           String b = stack.peek();
 
           String rule = a + "," + b;
 
-          if (a.eq
+          if (a.compareTo(b) == 0)
+          {
+              System.out.println("Match");
+              stack.pop();
+              grammer_stack.pop();
+              continue;
+          }
          int useRule = tableRules.get(rule);
 
         switch (useRule) {
@@ -121,9 +129,15 @@ public class table-driven-grammer
                 grammer_stack.push("-");
                 break;
             default:
+                valid = false;
                 break;
         }
       }
+      if (stack.size() == 0)
+          return true;
+      else 
+          return false;
+
   }
   
   public static void fillTable()
@@ -159,6 +173,5 @@ public class table-driven-grammer
     tableRules.put("<add op>,+",20);
     tableRules.put("<add op>,-",21);
     tableRules.put("<system goal>,begin",22);  
-}
-
+  }
 }
