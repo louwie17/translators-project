@@ -1,0 +1,58 @@
+Script started on Thu 01 Nov 2012 06:56:27 PM ADT
+bash: alias: -g: invalid option
+alias: usage: alias [-p] [name[=value] ... ]
+bash: alias: -g: invalid option
+alias: usage: alias [-p] [name[=value] ... ]
+bash: alias: -g: invalid option
+alias: usage: alias [-p] [name[=value] ... ]
+bash: alias: -g: invalid option
+alias: usage: alias [-p] [name[=value] ... ]
+lourens@lourens-desktop:$ javac[K[K[K[K[K
+lourens@lourens-desktop:$ 
+lourens@lourens-desktop:$ 
+lourens@lourens-desktop:$ 
+lourens@lourens-desktop:$ javac *.java
+lourens@lourens-desktop:$ 
+lourens@lourens-desktop:$ java tableDrivenGrammer 
+Grammer: begin read ( Id , Id ) ; end $
+Text is grammer compatible!
+lourens@lourens-desktop:$ java tableDrivenGrammer 
+Grammer: begin Id : = INTLIT ( Id + INTLIT ( Id ) ) ; write ( Id - INTLIT , Id ( INTLIT + INTLIT ) ) ; read ( Id , Id , Id ) ; end $
+Text is grammer compatible!
+lourens@lourens-desktop:$ 
+lourens@lourens-desktop:$ java tableDrivenGrammer 
+Grammer: begin read ( Id , Id ) ; read ( Id , Id , Id ) ; write ( Id ( INTLIT - INTLIT - INTLIT + Id ) , Id + Id  ) ; Id : = Id ; end $
+Text is grammer compatible!
+lourens@lourens-desktop:$ 
+lourens@lourens-desktop:$ jva[K[Kava recursiveDrivenGrammer 
+Grammer: begin read ( Id , Id ) ; read ( Id , Id , Id ) ; write ( Id ( INTLIT - INTLIT - INTLIT + Id ) , Id + Id  ) ; Id : = Id ; end $
+Text is grammer compatible!
+lourens@lourens-desktop:$ 
+lourens@lourens-desktop:$ java recursiveDrivenGrammer 
+Grammer: begin Id : = INTLIT ( Id + INTLIT ( Id ) ) ; write ( Id - INTLIT , Id ( INTLIT + INTLIT ) ) ; read ( Id , Id , Id ) ; end $
+Text is grammer compatible!
+lourens@lourens-desktop:$ 
+lourens@lourens-desktop:$ java recursiveDrivenGrammer 
+Grammer: begin read ( Id , Id ) ; end $
+Text is grammer compatible!
+lourens@lourens-desktop:$ 
+lourens@lourens-desktop:$ java recursiveDrivenGrammer 
+Grammer: begin read ( Id , Id ) ; read ( Id , Id , Id ) ; write ( Id ( INTLT - INTLIT - INTLIT + Id ) , Id + Id  ) ; Id : = Id ; end $
+Text is not grammer compatible!
+lourens@lourens-desktop:$ java tableDrivenGrammer 
+Grammer: begin read ( Id , Id ) ; read ( Id , Id , Id ) ; write ( Id ( INTLT - INTLIT - INTLIT + Id ) , Id + Id  ) ; Id : = Id ; end $
+Text is not grammer compatible!
+lourens@lourens-desktop:$ 
+lourens@lourens-desktop:$ java tableDrivenGrammer 
+Grammer: begin read ( Id , Id ) ; end $ as
+Text is not grammer compatible!
+lourens@lourens-desktop:$ 
+lourens@lourens-desktop:$ java recursiveDrivenGrammer 
+Grammer: begin read ( Id , Id ) ; end $ as
+Text is not grammer compatible!
+lourens@lourens-desktop:$ 
+lourens@lourens-desktop:$ 
+lourens@lourens-desktop:$ exit
+exit
+
+Script done on Thu 01 Nov 2012 07:00:47 PM ADT

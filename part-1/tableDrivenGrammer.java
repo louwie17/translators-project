@@ -1,3 +1,11 @@
+
+/* 
+ * Name: Lourens Schep, 100103961
+ * Course: COMP 3703
+ * Date: Nov 1, 2012
+ */
+
+
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.ArrayDeque;
