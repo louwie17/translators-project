@@ -29,11 +29,16 @@ public class tableDrivenGrammer
     grammer_stack.push("<program>");
       while(stack.size() > 0 || valid == true)
       {
+          if (grammer_stack.size() == 0 || stack.size() == 0)
+          {
+              valid = false;
+              break;
+          }
           String a = grammer_stack.peek();
           String b = stack.peek();
 
           String rule = a + "," + b;
-
+          System.out.println(a + " compare to " +b);  
           if (a.compareTo(b) == 0)
           {
               System.out.println("Match");
@@ -42,8 +47,10 @@ public class tableDrivenGrammer
               continue;
           }
          int useRule = tableRules.get(rule);
-
-        switch (useRule) {
+        if (useRule >= 1 && useRule <= 22)
+            grammer_stack.pop();
+        switch (useRule) 
+        {
             case 1:
                 grammer_stack.push("end");
                 grammer_stack.push("<statement list>");
