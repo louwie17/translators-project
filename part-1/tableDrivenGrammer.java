@@ -42,10 +42,8 @@ public class tableDrivenGrammer
           String b = stack.peek();
 
           String rule = a + "," + b;
-          System.out.println(a + " compare to " +b);  
           if (a.compareTo(b) == 0)
           {
-              System.out.println("Match");
               stack.pop();
               grammer_stack.pop();
               continue;
