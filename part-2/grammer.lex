@@ -1,15 +1,26 @@
 %{
-#include <iostream>
-using namespace std;
-#define YY_DECL extern 'C' int yylex()
+    #include <stdio.h>
+    #include "y.tab.h"
 %}
 %%
-[ \t\n]         ;
-[0-9]+\.[0-9]+  { cout << "Found a floating-point number:" << yytext << endl; }
-[0-9]+          { cout << "Found an integer:" << yytext << endl; }
-[a-zA-Z0-9]+    { cout << "Found a string: " << yytext << endl; }
+
+"begin"     return START;
+"end"       return END;
+"read"      return READ;
+"write"     return WRITE;
+"INTLIT"    return INTLIT;
+"Id"        return ID;
+","         return COMA; 
+":"         return COLON;
+";"         return SEMICOLON;
+-           return MINUS;
+\+          return PLUS;
+\$          return DOLLARSIGN;
+\)          return CLOSEDBRACE;
+\(          return OPENBRACE;
+\=          return EQUAL;
+[ \t]       /* ignore whitespace */;
+.           return UNKNOWN;
+
 %%
-main() {
-    // lex through the input:
-    yylex();
-}
+
